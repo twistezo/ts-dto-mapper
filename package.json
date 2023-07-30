@@ -47,5 +47,6 @@
     "preversion": "npm run build",
     "test": "vitest run"
   },
-  "version": "1.0.4"
+  "types": "dist/index.d.ts",
+  "version": "1.0.5"
 }
