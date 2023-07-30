@@ -8,6 +8,12 @@
 
 </div>
 
+<div align="center">
+
+[![Build and test](https://github.com/twistezo/ts-dto-mapper/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/twistezo/ts-dto-mapper/actions/workflows/build.yml?query=branch:main)
+
+</div>
+
 ## Description
 
 Utility for easy mapping between DTO and OM objects based on their data types.

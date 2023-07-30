@@ -8,7 +8,7 @@ on:
 
 jobs:
   library:
-    name: Library
+    name: Build and test
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +19,4 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build & Lint & Unit tests
-        working-directory: ./
         run: npm run build
