@@ -26,13 +26,18 @@
     "transfer",
     "object",
     "model",
+    "map",
     "mapper",
+    "transfor",
     "transformer",
     "typescript"
   ],
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@twistezo/ts-dto-mapper",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/twistezo/ts-dto-mapper.git"
@@ -48,5 +53,5 @@
     "test": "vitest run"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.5"
+  "version": "1.0.6"
 }
