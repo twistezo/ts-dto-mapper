@@ -18,5 +18,8 @@ jobs:
       - name: Setup environment
         uses: ./.github/actions/setup
 
-      - name: Build & Lint & Unit tests
+      - name: Lint & Unit tests
+        run: npm run check
+
+      - name: Build
         run: npm run build

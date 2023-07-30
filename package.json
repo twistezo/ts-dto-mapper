@@ -16,8 +16,7 @@
     "vitest": "^0.33.0"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "homepage": "https://github.com/twistezo/ts-dto-mapper",
   "keywords": [
@@ -43,15 +42,15 @@
     "url": "git+https://github.com/twistezo/ts-dto-mapper.git"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc",
+    "check": "npm run lint && npm run test",
     "lint": "eslint src",
     "postversion": "git push --follow-tags",
-    "prebuild": "npm run clean && npm run lint && npm run test",
-    "prepublishOnly": "npm run prebuild",
-    "preversion": "npm run build",
+    "prepublish": "npm run check && npm run build",
+    "publish:gh": "npm publish --registry=https://npm.pkg.github.com",
+    "publish:npm": "npm publish",
     "test": "vitest run"
   },
   "types": "./dist/index.d.ts",
-  "version": "1.0.10"
+  "version": "1.0.16"
 }
