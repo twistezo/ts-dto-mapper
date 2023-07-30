@@ -1,0 +1,23 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  library:
+    name: Library
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.3
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Build & Lint & Unit tests
+        working-directory: ./
+        run: npm run build
