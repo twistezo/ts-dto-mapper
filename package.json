@@ -33,7 +33,7 @@
     "typescript"
   ],
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "name": "@twistezo/ts-dto-mapper",
   "publishConfig": {
     "access": "public"
@@ -52,6 +52,6 @@
     "preversion": "npm run build",
     "test": "vitest run"
   },
-  "types": "dist/index.d.ts",
-  "version": "1.0.9"
+  "types": "./dist/index.d.ts",
+  "version": "1.0.10"
 }
