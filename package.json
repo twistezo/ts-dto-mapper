@@ -3,7 +3,7 @@
   "bugs": {
     "url": "https://github.com/twistezo/ts-dto-mapper/issues"
   },
-  "description": "DTO (Data Transfer Object) to Object Model transformer",
+  "description": "DTO mapper based on TS types",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
@@ -53,5 +53,5 @@
     "test": "vitest run"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.6"
+  "version": "1.0.7"
 }

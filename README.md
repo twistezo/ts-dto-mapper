@@ -1,6 +1,6 @@
 <div align="center">
 
-# DTO mapper
+# DTO mapper based on TS types
 
 ![](https://img.shields.io/npm/v/@twistezo/ts-dto-mapper?style=flat-square&color=9cf)
 ![](https://img.shields.io/npm/dt/@twistezo/ts-dto-mapper?style=flat-square&color=9cf)
@@ -10,16 +10,23 @@
 
 ## Description
 
-Utility for easy mapping between DTO and OM objects based on their types.
+Utility for easy mapping between DTO and OM objects based on their data types.
 
-## Dictionary
+Benefits:
 
-### DTO - Data Transfer Object
+- no object-oriented approach based on classes
+- no cluttering the code with decorators
+- no need to install a large library for a simple operation
+- only function based on objects types with access to the context inside
+
+## Knowledge
+
+DTO - Data Transfer Object
 
 - ex. object shape from API
 - https://en.wikipedia.org/wiki/Data_transfer_object
 
-### OM - Object Model
+OM - Object Model
 
 - various shape of object, ex. business object
 - https://en.wikipedia.org/wiki/Object_model
@@ -32,9 +39,31 @@ npm install @twistezo/ts-dto-mapper
 
 ## Tips
 
-Always populate generic types `<From>`, and `<To>` in `mapDTO` function. This helps with debugging and provides IntelliSense.
+- Always populate generic types `<From>`, and `<To>` in `mapDTO` function. This helps you with debugging and provides IDE IntelliSense.
+
+- `.transform` accepts callback with source context so you can put there reusable data transformation and have reusable mapper.
 
 ## Usage
+
+### tldr;
+
+From DTO:
+
+```ts
+const foo = mapDTO<FooDTO, Foo>({ from: fooDTO }).transform(fooDTO => ({
+  // map with access to source context
+}))
+```
+
+To DTO:
+
+```ts
+const fooDTO = mapDTO<Foo, FooDTO>({ from: foo }).transform(foo => ({
+  // map with access to source context
+}))
+```
+
+### Full example
 
 Import:
 
@@ -79,6 +108,8 @@ Map from DTO to OM:
 ```ts
 const fooFromFooDTO: Foo = mapDTO<FooDTO, Foo>({ from: fooDTO }).transform(
   (fooDTO: FooDTO): Foo => {
+    // map with access to source context
+
     const { fullName, uuid } = fooDTO
     const [firstName, lastName] = fullName.split(' ')
 
@@ -95,6 +126,8 @@ Map from OM to DTO:
 
 ```ts
 const fooDTOfromFoo: FooDTO = mapDTO<Foo, FooDTO>({ from: foo }).transform(foo => {
+  // map with access to source context
+
   const { firstName, id, lastName } = foo
 
   return {
