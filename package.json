@@ -36,7 +36,7 @@
   "main": "dist/index.js",
   "name": "@twistezo/ts-dto-mapper",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -53,5 +53,5 @@
     "test": "vitest run"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.7"
+  "version": "1.0.8"
 }
