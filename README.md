@@ -36,10 +36,15 @@ Always populate generic types `<From>`, and `<To>` in `mapDTO` function. This he
 
 ## Usage
 
+Import:
+
 ```ts
 import { mapDTO } from '@twistezo/ts-dto-mapper'
+```
 
-// Prepare OM and DTO shapes
+Prepare OM and DTO shapes:
+
+```ts
 type Foo = {
   id: string
   firstName: string
@@ -51,9 +56,11 @@ type FooDTO = {
   fullName: string
   unnecessary: object
 }
+```
 
-// Prepare objects
+Prepare objects:
 
+```ts
 const foo: Foo = {
   id: '1001',
   firstName: 'John',
@@ -65,8 +72,11 @@ const fooDTO: FooDTO = {
   fullName: 'John Smith',
   unnecessary: {},
 }
+```
 
-// Map from DTO to OM
+Map from DTO to OM:
+
+```ts
 const fooFromFooDTO: Foo = mapDTO<FooDTO, Foo>({ from: fooDTO }).transform(
   (fooDTO: FooDTO): Foo => {
     const { fullName, uuid } = fooDTO
@@ -79,8 +89,11 @@ const fooFromFooDTO: Foo = mapDTO<FooDTO, Foo>({ from: fooDTO }).transform(
     }
   },
 )
+```
 
-// Map from OM to DTO
+Map from OM to DTO:
+
+```ts
 const fooDTOfromFoo: FooDTO = mapDTO<Foo, FooDTO>({ from: foo }).transform(foo => {
   const { firstName, id, lastName } = foo
 
